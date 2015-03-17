@@ -1,0 +1,1228 @@
+<html><head><link rel="stylesheet" id="github-highlight-style" href="chrome-extension://iaalpfgpbocpdfblpnhhgllgbdbchmia/css/highlight/github.css"><script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({  tex2jax: {    inlineMath: [["\\(", "\\)"]],    displayMath: [["\\[", "\\]"]],    ignoreClass: "nostem|nolatexmath"  },  asciimath2jax: {    delimiters: [["\\$", "\\$"]],    ignoreClass: "nostem|noasciimath"  }});</script><script type="text/javascript" src="chrome-extension://iaalpfgpbocpdfblpnhhgllgbdbchmia/vendor/MathJax/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script><script type="text/javascript" src="chrome-extension://iaalpfgpbocpdfblpnhhgllgbdbchmia/js/vendor/highlight.min.js"></script><link rel="stylesheet" id="asciidoctor-style" href="chrome-extension://iaalpfgpbocpdfblpnhhgllgbdbchmia/css/themes/asciidoctor.css"><link rel="stylesheet" id="font-awesome-style" href="chrome-extension://iaalpfgpbocpdfblpnhhgllgbdbchmia/css/font-awesome.min.css"><title>ExtraSpeed</title><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style></head><body class="article"><div id="MathJax_Message" style="display: none;"></div><div id="content"><h1>ExtraSpeed</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Игра про то, как существо бежит по островам.</p>
+</div>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#__">Термины</a></li>
+<li><a href="#___2">Основные моменты</a></li>
+<li><a href="#___3">Ветвление возможностей</a>
+<ul class="sectlevel2">
+<li><a href="#__span_class_lime_acceleration_span">Применение ускорения <span class="lime">acceleration:</span></a></li>
+<li><a href="#__span_class_lime_die_span">Проигрыш может быть защитан <span class="lime">die</span>:</a></li>
+<li><a href="#__span_class_lime_enemies_span">Противники <span class="lime">enemies</span></a>
+<ul class="sectlevel3">
+<li><a href="#__span_class_lime_enemytype_span">Типы Противников <span class="lime">enemyType</span></a></li>
+<li><a href="#__span_class_lime_enemybehaviour_span">Поведение противников <span class="lime">enemyBehaviour</span></a></li>
+<li><a href="#__span_class_lime_enemymove_span">Движения противников <span class="lime">enemyMove</span></a></li>
+<li><a href="#__span_class_lime_enemyaction_span">Действия Противников <span class="lime">enemyAction</span></a></li>
+</ul>
+</li>
+<li><a href="#__span_class_lime_essencesize_span">Размер существ <span class="lime">essenceSize</span></a></li>
+<li><a href="#___4">Далее про разное поведение в зависимости от состава</a></li>
+</ul>
+</li>
+<li><a href="#___5">Обоснование выбранного визуального стиля</a></li>
+<li><a href="#___6">Техническая спецификация</a>
+<ul class="sectlevel2">
+<li><a href="#__em_first_prototype_em">Первый прототип <em>first prototype</em></a></li>
+<li><a href="#__em_second_prototype_em">Второй прототип <em>second prototype</em></a></li>
+<li><a href="#__em_third_prototype_em">Третий прототип <em>third prototype</em></a></li>
+<li><a href="#__em_fourth_prototype_em">Четвёртый прототип <em>fourth prototype</em></a></li>
+<li><a href="#__em_fifth_prototype_em">Пятый прототип <em>fifth prototype</em></a>
+<ul class="sectlevel3">
+<li><a href="#___7">Проблемы последнего прототипа</a></li>
+</ul>
+</li>
+<li><a href="#__em_sixth_prototype_em">Шестой прототип <em>sixth prototype</em></a></li>
+<li><a href="#___8">Следующий прототип</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect1">
+<h2 id="__">Термины</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Существо</strong> <em>essence</em> (предметы) - животные <em>creature</em>, машины <em>machine</em>. Игрок играет одним из них, ему на пути попадаются такие.</p>
+</div>
+<div class="paragraph">
+<p><strong>Тип существа</strong> <em>essence type</em> - существо обозначаемое конкретной 3д моделью. (Например: машинка, свинья)</p>
+</div>
+<div class="paragraph">
+<p><strong>Игрок</strong> <em>player</em> (пользователь) - тот, кто играет, принимает решения в игре, видит изображение и интерфейс, взаимодействует с игрой посредством интерфейса и средств ввода.</p>
+</div>
+<div class="paragraph">
+<p><strong>Герой</strong> <em>hero</em> (гг, персонаж, герой).</p>
+</div>
+<div class="paragraph">
+<p><strong>Противник</strong> <em>enemy</em> враг, противник, неприятель, Противник - существа, которыми игрок не управляет.</p>
+</div>
+<div class="paragraph">
+<p><strong>Сбить</strong> <em>break</em>- герой соприкасается с противником в состоянии ускорения и побеждает его.</p>
+</div>
+<div class="paragraph">
+<p><strong>Уровень</strong> <em>level</em> - бесшовное пространство в котором происходит игра (реализовывается основная механика геймплея).</p>
+</div>
+<div class="paragraph">
+<p><strong>Остров</strong> <em>island</em> - то, по чему бежит герой.</p>
+</div>
+<div class="paragraph">
+<p><strong>Бездна</strong> <em>abyss</em> - пространство под островами, куда можно попасть упав между ними. Смертельно!</p>
+</div>
+<div class="paragraph">
+<p><strong>Ускорение</strong> <em>acceleration</em> - вызванное игроком временное увеличение скорости героя.</p>
+</div>
+<div class="paragraph">
+<p><strong>Поражение</strong> <em>die</em> - проигрыш уровня.</p>
+</div>
+<div class="ulist">
+<div class="title"><strong>Конструктор</strong> <em>kit</em> (кубики)</div>
+<ul>
+<li>
+<p>куб <em>cube</em></p>
+</li>
+<li>
+<p>цилиндр <em>cylinder</em></p>
+</li>
+<li>
+<p>призма <em>prism</em> (треугольник)</p>
+</li>
+<li>
+<p>мост <em>bridge</em></p>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock warning">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Возможно стоит разбить мост на две части.
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>пирамида <em>spike</em> (шип)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Вспомогательные элементы <em>aux items</em></div>
+<ul>
+<li>
+<p>глаз <em>eye</em></p>
+</li>
+<li>
+<p>колесо <em>wheel</em></p>
+</li>
+<li>
+<p>нога <em>leg</em></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="___2">Основные моменты</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Существа сделаны из конструктора с добавлением Вспомогательных элементов</p>
+</div>
+<div class="paragraph">
+<p>По этому при необходимости Существа могут разваливаться</p>
+</div>
+<div class="paragraph">
+<p>У существа может быть только один цвет <span class="lime">essenceColor:one</span></p>
+</div>
+<div class="paragraph">
+<p>У существа может быть два глаза</p>
+</div>
+<div class="paragraph">
+<p>У существа могут быть колёса</p>
+</div>
+<div class="paragraph">
+<p>Наш герой всё время движется врерёд (бежит/едет)</p>
+</div>
+<div class="paragraph">
+<p>Герой бежит <em>run</em> по островам</p>
+</div>
+<div class="paragraph">
+<p>Игра состоит из одного уровня (возможно варианты с рескином!). Сам по себе уровень <span class="lime">level:rnd</span> создаётся  рандомно (сложно балансировать) или же <span class="lime">level:pre</span> создан заранее  (этот вариант интересен тем, что можно чётко рассчитать интересные моменты, их порядок и избежать неинтересных участков, но сам затратен в производстве и возможно скушен)</p>
+</div>
+<div class="paragraph">
+<p>На краю остров поднимается вверх и герой по энерции подлетает вверх и таким образом может перелететь на следующий остров.</p>
+</div>
+<div class="paragraph">
+<p>Игрок может производить над героем только одно действие - увеличить скорость его движения.</p>
+</div>
+<div class="paragraph">
+<p>Герой долетает до следующего острова на обычной скорости или для того, чтобы долететь ему требуется заранее увеличить скорость и в этом состоит игровое задание игрока.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="___3">Ветвление возможностей</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="__span_class_lime_acceleration_span">Применение ускорения <span class="lime">acceleration:</span></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="lime">acceleration:free</span> ускорение можно применить в любой момент, в любых количествах и задача игрока в том, чтобы применять эту возможность в нужное время и правильной длительности. В такой ситуации должен быть штраф обоюдоострый за недопрыг и за перепрыг. Летающие щиты с шипами или необходимость попасть в "трубу" - когда то, куда надо попасть ограничено сверху и снизу.</p>
+</li>
+<li>
+<p><span class="lime">acceleration:line</span> возможно, что ускорение можно применить в любой момент, но у него есть определённая фиксированная длительность и при этом скорее всего</p>
+</li>
+<li>
+<p><span class="lime">acceleration:line+</span> некоторый времменный запрет сразу после.</p>
+</li>
+<li>
+<p><span class="lime">acceleration:force</span> Или не совсем пауза, а просто ускорение действует не линейно, а как пик и ослабление и пока идёт ослабление - нельзя ускориться вновь.</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Задача игрока (кроме случая <span class="lime">acceleration:free</span>) вызвать ускорение в правильный момент времени ни раньше ни позже. (Сразу уточним, что сложность игры при таких правилах определяется размером окна, когда ускорение "поможет" (типа Flappy Bird))</p>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Эненргия ускорения <span class="lime">accelerationEnergy</span></div>
+<div class="admonitionblock warning">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Эта опция не возможна, т.к. ускорение необходимо безаппеляционно.
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="lime">accelerationEnergy:none</span> возможность ускоряться доступна всегда</p>
+</li>
+<li>
+<p><span class="lime">accelerationEnergy:exists</span> Ускорение происходит за счёт энергии ускорений, которая восполняется</p>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="lime">accelerationEnergyRecovery:run</span> во время обычного бега</p>
+</li>
+<li>
+<p><span class="lime">accelerationEnergyRecovery:bonus</span> или от специальных бонусов на уровне</p>
+</li>
+<li>
+<p><span class="lime">accelerationEnergyRecovery:run+bonus</span> или и так и так</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Все варианты <span class="lime">accelerationEnergy</span> могут быть при обоих состояниях <span class="lime">acceleration</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__span_class_lime_die_span">Проигрыш может быть защитан <span class="lime">die</span>:</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="lime">die:abyss</span> в случае падения между островами</p>
+</li>
+<li>
+<p><span class="lime">die:runEnergy</span> или есть понятие энергии <em>runEnergy</em>, она тратится во время бега и при истечении герой "умирает" (останавливается)</p>
+<div class="paragraph">
+<p>(в случае создания категории энергии надо придумать пути её появления. Например в начале уровня и спец. бонусы на уровне)</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><span class="lime">die:runEnergy</span> несовместимо с <span class="lime">accelerationEnergy:exists</span>.</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p><span class="lime">die:enemy</span> к условию <span class="lime">die:abyss</span> добавляется соприкасновение героя с Противником (доступно в <span class="lime">enemies:exists</span>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__span_class_lime_enemies_span">Противники <span class="lime">enemies</span></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="lime">enemies:none</span> Возможно, что игра ограничивается перелётами между островами и этого достаточно для увлекательности геймплея.</p>
+</li>
+<li>
+<p><span class="lime">enemies:exists</span> Или же на уровне есть противники и вторая часть геймплея заключается в том, чтобы</p>
+<div class="admonitionblock important">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+допускать соприкосновение героя с противником только в состоянии ускорения
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="paragraph">
+<p>иначе игроку будет засчитано поражение <span class="lime">die:enemy</span></p>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="__span_class_lime_enemytype_span">Типы Противников <span class="lime">enemyType</span></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="lime">enemyType:heroType</span> Все типы существ могут быть назначены, как герою, так и Противникам.</p>
+</li>
+<li>
+<p><span class="lime">enemyType:special</span> Действия и движения некоторых противников настолько отличаются от бега, что создаются специальные группы противников совершающие только им присущие действия.</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>При <span class="lime">enemyType:special</span> такие типы существ <strong>не могут</strong> назначаться герою. Или под них могут быть созданы специальные типы геймплея со своими уровнями (смотри пример <a href="https://play.google.com/store/apps/details?id=com.ketchapp.donttouchthespikes">Don’t Touch The Spikes</a>)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="__span_class_lime_enemybehaviour_span">Поведение противников <span class="lime">enemyBehaviour</span></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="lime">enemyBehaviour:same</span> Противники ведут себя все одинаково.</p>
+</li>
+<li>
+<p><span class="lime">enemyBehaviour:various</span> Противники ведут себя одним из предустановленых образов. Поведение конкретного противника перманентно и назначается случайно.</p>
+</li>
+<li>
+<p><span class="lime">enemyBehaviour:specialized</span> Противники ведут себя определёным уникальным образом в зависимости от типа существа</p>
+</li>
+<li>
+<p><span class="lime">enemyBehaviour:groups</span> Противники ведут себя определёным образом в зависимости от группы, к которой относится данный тип</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="__span_class_lime_enemymove_span">Движения противников <span class="lime">enemyMove</span></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Для <span class="lime">enemyType:heroType</span></p>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="lime">enemyMove:stay</span> стоят или</p>
+</li>
+<li>
+<p><span class="lime">enemyMove:walk</span> движутся по острову</p>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="lime">enemyMoveDirection:towards</span> на встречу</p>
+</li>
+<li>
+<p><span class="lime">enemyMoveDirection:same</span> вместе с нами (медленнее??)</p>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>При <span class="lime">enemyBehaviour:various</span> могут быть использованы все вышеперечисленные <span class="lime">enemyMove</span></p>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Для <span class="lime">enemyType:special</span></p>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="lime">enemyMove:fish</span> рыбы (дельфины, киты, подводные лодки) - вертикально выпрыгивают между островами</p>
+</li>
+<li>
+<p><span class="lime">enemyMove:frog</span> лягушки - вертикально подпрыгивает на плоских участках островов</p>
+</li>
+<li>
+<p><span class="lime">enemyMove:bird</span> птицы (самолёты) - летают по некой траектории над землёй</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="__span_class_lime_enemyaction_span">Действия Противников <span class="lime">enemyAction</span></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="lime">enemyAction:one</span> только один вид Движения Противников</p>
+</li>
+<li>
+<p><span class="lime">enemyAction:inCourse</span> некоторые Движения Противников поочерёдно (определённые отрезки времени)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__span_class_lime_essencesize_span">Размер существ <span class="lime">essenceSize</span></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="lime">essenceSize:fixed</span> Все существа имеют размер стремящийся к определённому, но ни при каких обстоятельствах не превышающий его (типа 4х4х3)</p>
+</li>
+<li>
+<p><span class="lime">essenceSize:withSpecials</span> существа <span class="lime">enemyType:special</span> выходящие за общие рамки.</p>
+</li>
+<li>
+<p><span class="lime">essenceSize:scalable</span> странный/сложный вариант, когда есть существа с элементами конструктора уменьшенными в двое и соответственно вдвое детальней.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="___4">Далее про разное поведение в зависимости от состава</h3>
+<div class="paragraph">
+<p>…​</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="___5">Обоснование выбранного визуального стиля</h2>
+<div class="sectionbody">
+<div class="ulist">
+<div class="title">Цели</div>
+<ul>
+<li>
+<p>Зарабатывать деньги</p>
+</li>
+<li>
+<p>Создавать игры</p>
+</li>
+<li>
+<p>Сделать игру без масштабных трат времени и денег</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Задачи</div>
+<ul>
+<li>
+<p>Сделать игру, которая сможет потенциально приносить деньги</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Набор чужого опыта от специалистов из индустрии.</div>
+<ul>
+<li>
+<p>Фритуплей игры занимают 98% рынка.</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Все мысли даны без ссылок.
+Потому, что я перелопатил много материала с целью получить знания, и эти знания у меня в голове.
+Придётся мне поверить, что я не сам это всё выдумал.</p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Привлечение аудитории в платный проект - задача, у которой нет тривиального решения. Нужен опыт, супер-фишка, УДАЧА, работа с PR и снова удача.</p>
+</li>
+<li>
+<p>Инди редко справляются с фритуплеем, потому что оперирование проекта занимает в несколько раз больше ресурсов.</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Оперирование - работа с проектом после запуска. Обновление игры, создание дополнительного контента, ведение аналитики, оптимизация прибыли.</p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Фритуплей проекты требуют постоянной подпитки контентом. Когда игрок видел всё, что есть в игре - он теряет к ней интерес даже при увлекательном основном цикле.</p>
+</li>
+<li>
+<p>Развивающийся фритуплей проект может "выстрелить" спустя какое-то время, от начала существования. Разные географические зоны могут втягиваться в проект спустя год (и более).</p>
+</li>
+<li>
+<p>Скорость потребления контента в игре обычно недооценивается разработчиком и крайне высока.</p>
+</li>
+<li>
+<p>До 70% покупок в игре делается во время первых 3-х игровых сессий.</p>
+</li>
+<li>
+<p>Очень малый процент игроков доживает до второй недели игры.</p>
+</li>
+<li>
+<p>Покупательская способность некоторых игроков высока. Игрок может зайти в проект, купить весь контент и уйти. Такая покупка может составлять $500.</p>
+</li>
+<li>
+<p>Маркетинг, пиар, саппорт проекта могут отнимать полный рабочий день разработчика.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Мои выводы и подзадачи под этот проект</div>
+<p>Создание фритуплей проекта силами микро-команды возможно только в специально спланированных особых условиях.
+Ровняться на большие, средние и почти любые чужие проекты нельзя, т.к. количество работы в них велико.
+Даже малое количество контента - опасный путь.
+Потому, что в случае средней успешности проекта - все наши усилия должны будут быть направлены на оперирование.
+И мы обречём себя на пару лет служения этому "быстрому" проекту.
+Преимущество и вообще выживание возможно в случае, когда создание дополнительного контента для нас <strong>практически</strong> бесплатно.
+Когда может быть создана фабрика производства контента.
+Чтобы можно было создавать контент на пару месяцев за неделю или привлекать для этого низкоквалифицированный бесплатный труд.</p>
+</div>
+<div class="ulist">
+<div class="title">Пул идей по конструктору:</div>
+<ul>
+<li>
+<p>Конструктор даёт возможность создавать модельки в жёстко ограниченных условиях.
+По этому их просто делать и невозможно шлифовать слишком долго.</p>
+</li>
+<li>
+<p>Не требуется анврап, текстурирование, ригинг, анимация.</p>
+</li>
+<li>
+<p>Выполненные в одном масштабе фигурки будут сходны по стилистике, даже если выполненны разными исполнителями.</p>
+</li>
+<li>
+<p>Идея конструктора оправдывает простоту форм для игрока.</p>
+</li>
+<li>
+<p>То, что модельки состоят из конструктора - позволяет анимированно разрушать их рассыпая конструктор.
+Таким образом мы получаем одну из необходимых анимаций для каждой модельки для игры бесплатно.</p>
+</li>
+<li>
+<p>Ограниченное количество вариантов исполнения ног и колёс для моделек позволяет создать универсальные методы анимации средствами движка.
+Любая машинка, кролик или свинья будут бегать и ускоряться бесплатно.</p>
+</li>
+<li>
+<p>Возможно сделать полу-автоматические анимации полёта.</p>
+</li>
+<li>
+<p>Модельки могут быть одноцветные (проще) или состоять из кубиков разных цветов.</p>
+</li>
+<li>
+<p>Стилистика моделек подсказывает стиль окружения. Возможно также состоящего из конструктора.</p>
+</li>
+<li>
+<p>В идею конструктора заложен потенциал на будущее:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Можно состав модельки использовать, как набор неких характеристик, или как основу для комплексной характеристики.</p>
+</li>
+<li>
+<p>Можно процедуру получения следующей фигурки превратить в сбор необходимых деталей конструктора.</p>
+</li>
+<li>
+<p>Или сделать на этой основе механизм прокачки существ (например визуальная прокачка - то есть у существа изменяется облик, а не механика. Или ему даётся больше бонусных очков).</p>
+</li>
+<li>
+<p>Можно сделать сезонные изменения - например летние костюмы для существ, или на хелоуин и т.п.</p>
+</li>
+<li>
+<p>Можно сделать конструктор новых существ и распространять его или внутри игры или сделать доступным на сайте.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Какие я виду ещё варианты:</div>
+<ul>
+<li>
+<p>3д модельки</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Делать уникальные модельки <strong>намного намного</strong> сложнее.</p>
+</li>
+<li>
+<p>Нормали, группы сглаживания.</p>
+</li>
+<li>
+<p>Риг и анимация.</p>
+</li>
+<li>
+<p>Возможно анврап и текстурирование.</p>
+</li>
+<li>
+<p>Результат сложнее прогнозировать. (Одна моделька красивее остальных или отличается стилем.)</p>
+</li>
+<li>
+<p>Я не думаю, что ты всегда будешь в силах и в настроении делать такие модельки на потоке.</p>
+</li>
+<li>
+<p>Возможно требует арт-дирекшен и концепт-художника.</p>
+</li>
+<li>
+<p>Нет анимации сталкивания.</p>
+</li>
+<li>
+<p>Нет оправдания столкновениям живых созданий друг с другом и с техникой.</p>
+</li>
+<li>
+<p>Не заложен принцип сбора существ "по частям".</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Пиксельарт</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Нет пиксельарт-художника.</p>
+</li>
+<li>
+<p>Нет денег на найм пиксельарт-художника.</p>
+</li>
+<li>
+<p>Работы в этом жанре могут отличаться по стилистике у разных художников.</p>
+</li>
+<li>
+<p>Анимация?</p>
+</li>
+<li>
+<p>Есть категория игроков, которые считают стиль "затасканным", не любят этот стиль, считают его стилем "плохого инди".</p>
+</li>
+<li>
+<p>Этот метод производства контента не использует сильные стороны нашей команды.
+Оставляет тебя незадействованым.</p>
+</li>
+<li>
+<p>В случае необходимости изменения моделей требуется или сам художник, или "попасть в стиль".</p>
+</li>
+<li>
+<p>Сложности с кросплатформенностью - размеры устройств, соотношения строн, пиксель-пёрфект на незнакомом железе.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Типа того</div>
+<p>Этот проект уже довольно сильно связан с идеей конструктора.
+Я не знаю, как делать контент на потоке как то ещё.
+Без какой-то такой концепции.
+Не обязательно именно этой.
+Мне кажется, что без такой концепции, позволяющей дешёвое производство контента, нам не удастся сделать нормальный фритуплей.
+Я не понимаю оценки идеи конструктора на основании моих попыток сделать хоть что-то за 2 часа.</p>
+</div>
+<div class="paragraph">
+<p>Я совсем не привязан к тем деталям конструктора, которые есть сейчас.
+Возможно есть смысл придумать новые или совсем другие.
+Какие-то вытянутые тетраедры и т.п.
+Что модельки из них будут похожи на оригами. <a href="http://origamiya.ru/wp-content/uploads/2014/07/1328207610_origami_animals_01.jpg">типа такого(посмотри)</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="___6">Техническая спецификация</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="__em_first_prototype_em">Первый прототип <em>first prototype</em></h3>
+<div class="ulist">
+<div class="title">В первоначальный вариант прототипа заложим следующий набор веток:</div>
+<ul>
+<li>
+<p><span class="lime">essenceColor:one</span> У существ один цвет (Для прототипа это видится не важным, но всё же).</p>
+</li>
+<li>
+<p><span class="lime">level:rnd</span> уровень создаётся  рандомно.</p>
+</li>
+<li>
+<p><span class="lime">acceleration:line+</span> ускорение можно применить в любой момент, у него есть определённая фиксированная длительность и некоторый времменный запрет сразу после</p>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Реализовано <span class="lime">acceleration:line</span></p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p><span class="lime">accelerationEnergy:none</span> возможность ускоряться доступна всегда</p>
+</li>
+<li>
+<p><span class="lime">die:abyss</span> проигрыш в случае падения между островами.</p>
+</li>
+<li>
+<p><span class="lime">enemies:none</span> Возможно, что игра ограничивается перелётами между островами и этого достаточно для увлекательности геймплея.</p>
+</li>
+<li>
+<p><span class="lime">essenceSize:fixed</span> Все существа имеют размер стремящийся к определённому, но ни при каких обстоятельствах не превышающий его (типа 4х4х3)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Игра глазами игрока</div>
+<p>Игрок владеет устройством на платформе Андроид. Он нажимает на иконку приложения и после появления splash-экрана (Unity) попадает на главный уровень <span class="fuchsia">MainLevel</span>. Игра на паузе <span class="fuchsia">GamePause</span>, и поверх игрового процесса выведено главное игровое меню <span class="fuchsia">MainMenu</span>. На нём есть кнопки:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock warning">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>Не реализовано</strong>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="fuchsia">Resume</span> (для публичной версии следует надпись Resume при первом запуске заменить на Start)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>слой с <span class="fuchsia">MainMenu</span> исчезает</p>
+</li>
+<li>
+<p>отменяется пауза <span class="fuchsia">GamePause</span></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="fuchsia">Restart</span></p>
+<div class="ulist">
+<ul>
+<li>
+<p>слой с <span class="fuchsia">MainMenu</span> исчезает</p>
+</li>
+<li>
+<p>отменяется пауза <span class="fuchsia">GamePause</span></p>
+</li>
+<li>
+<p>уровень <span class="fuchsia">MainLevel</span> рестартует</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>На основной интерфейсной канве расположены следующие элементы:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>если нажать в любом месте экрана, то герой ускорится</p>
+</li>
+<li>
+<p>в правом верхнем углу есть кнопка пауза. Если её нажать, то:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>применяется пауза <span class="fuchsia">GamePause</span></p>
+</li>
+<li>
+<p>появляется слой <span class="fuchsia">MainMenu</span></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>вверху экрана по середине выводится количество метров, которые уже пробежал герой по уровню <span class="fuchsia">MainLevel</span>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>На игровом поле расположен герой.
+Он стоит на острове.
+На плоской части.
+На игровом уровне располагается определённое количество островов.
+Острова в этом прототипе имеют приёмную наклонную площадку <span class="fuchsia">chute</span>, плоскую площадку <span class="fuchsia">flat</span> и наклонную трамплинную <span class="fuchsia">springboard</span> площадку.
+Высота площадок у всех островов одинаковая.
+Острова вытянуты вдоль оси Х.
+Количество островов достаточно большое, чтобы игровая сессия могла быть длительна и в то же время игра не должна тормозить из за этого.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>Не реализовано</strong> После старта игры герой стоит 1 секунду,
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="paragraph">
+<p>а потом начинает двигаться сразу со скоростью <span class="fuchsia">runSpeed</span>.
+Камера по оси X прочно привязана к герою.
+При нажатии на экран устройства в миг соприкосновения скорость героя устанавливается в <span class="fuchsia">accelerationSpeed</span> на <span class="fuchsia">accelerationTime</span>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>Не реализовано</strong> Во время <span class="fuchsia">accelerationTime</span> и <span class="fuchsia">afterAccelerationTime</span> после этого ускорение не может быть вызвано.
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="paragraph">
+<p>Герой пробегая трамплинную площадку <span class="fuchsia">springboard</span> получает вертикальное ускорение, которое даёт ему возможность долететь до следующего острова.
+При этом часто, чтобы герой долетел необходимо своевременное применение ускорения.
+Герой подлетая никогда не покидает пределов экрана.</p>
+</div>
+<div class="paragraph">
+<p>Нужны следующие составные части уровня:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>острова</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Короткий остров - у него длина плоской площадки сравнима с длиной наклонных частей.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Средний остров - у него длина плоской площадки сравнима с длиной наклонных частей х 2.</p>
+</div>
+<div class="paragraph">
+<p>Длиный остров - у него длина плоской площадки сравнима с длиной наклонных частей х 3 (4?).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Промежутки между островами</p>
+<div class="ulist">
+<ul>
+<li>
+<p>промежуток не требующий применения ускорения.</p>
+</li>
+<li>
+<p>промежуток требующий применения ускорения в определённой точке - дающей максимальное эффективное подбрасывания.</p>
+</li>
+<li>
+<p>один или два варианта отдалённости острова, когда активация ускорения требуется в определённом промежутке времени. (Даёт игроку возможность опоздать с нажатием).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Отладочный режим</div>
+<p>Камера не привязана к герою.
+Камера работает в режиме - без перезаписи буфера.
+Герой визуализируется, как его коллайдер.
+Герой может быть переведён в режим ускорения триггером на местности.
+Это позволяет проследить траекторию его полёта.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__em_second_prototype_em">Второй прототип <em>second prototype</em></h3>
+<div class="ulist">
+<div class="title">Набор веток:</div>
+<ul>
+<li>
+<p><span class="lime">essenceColor:one</span></p>
+</li>
+<li>
+<p><span class="lime">level:rnd</span></p>
+</li>
+<li>
+<p><span class="lime">acceleration:line</span> или <span class="lime">acceleration:line+</span></p>
+</li>
+<li>
+<p><span class="lime">accelerationEnergy:none</span></p>
+</li>
+<li>
+<p><span class="lime">die:enemy</span></p>
+</li>
+<li>
+<p><span class="lime">enemies:exists</span></p>
+</li>
+<li>
+<p><span class="lime">enemyType:heroType</span></p>
+</li>
+<li>
+<p><span class="lime">enemyBehaviour:same</span></p>
+</li>
+<li>
+<p><span class="lime">enemyMove:stay</span></p>
+</li>
+<li>
+<p><span class="lime">enemyAction:one</span></p>
+</li>
+<li>
+<p><span class="lime">essenceSize:fixed</span> типа 4х4х3</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Игра глазами игрока</div>
+<p>Во время ускорения герой приобретает легко различимый визуальный признак.</p>
+</div>
+<div class="paragraph">
+<p>На островах в заранее предусмотренных местах случайным образом находятся противники.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__em_third_prototype_em">Третий прототип <em>third prototype</em></h3>
+<div class="paragraph">
+<p>Сборка под андроид.</p>
+</div>
+<div class="paragraph">
+<p>Первый остров пуст <span class="lime">Short_short</span></p>
+</div>
+<div class="paragraph">
+<p>На пробу сделать визуализацию ускорения заметней.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__em_fourth_prototype_em">Четвёртый прототип <em>fourth prototype</em></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="lime">acceleration:line+</span></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Растущее количество врагов.</p>
+</div>
+<div class="paragraph">
+<p>Подсчёт количества врагов.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Плейтест с Грошевым</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Не мог разобраться с тем, что по экрану надо тапать, а не свайпать.</p>
+</li>
+<li>
+<p>Тапал много раз подряд, несмотря на индикатор.</p>
+</li>
+<li>
+<p>Пытался натягивать на индикаторе силу.</p>
+</li>
+<li>
+<p>Не понимал концепцию заряда и траты ускорения.</p>
+</li>
+<li>
+<p>Не понимал, что через короткую пропасть можно не прыгать.</p>
+</li>
+<li>
+<p>Очень просил прокачку/апгрейд, чтобы был смысл играть снова и снова.</p>
+</li>
+<li>
+<p>Не понимал, что существует оптимальная точка ускорения на трамплине перед большой пропастью и иногда перелетал её, а иногда ускорялся уже в воздухе и не мог долететь.
+Не мог понять, что это одна и та же ситуация и называл её - "та большая яма, которую никак не получается перепрыгнуть".</p>
+</li>
+<li>
+<p>Все пустые промежутки пролетал в режиме ускорения.</p>
+</li>
+<li>
+<p>Играл много раз без явного отвращения.</p>
+</li>
+<li>
+<p>Сначала вёл себя в сложных ситуациях суматошно, потом освоился.</p>
+</li>
+<li>
+<p>Переживал, когда был противник в районе трамплина и средняя или большая пропасть.</p>
+</li>
+<li>
+<p>Радовался, отмечал ситуацию интересной, когда перелетая через малую или среднюю пропасть попадал на противника. Затем научился избегать.</p>
+</li>
+<li>
+<p>Активно пользовался ускорением, когда ему казалось, что он может недолететь до следующего острова.</p>
+</li>
+<li>
+<p>Заметил, что коллайдер для противников у героя больше (исправлено в версии 0.5)</p>
+</li>
+<li>
+<p>Заметил, что ускорение ошибочно срабатывает на отпускание пальца, а не на нажатие (исправлено в версии 0.5)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__em_fifth_prototype_em">Пятый прототип <em>fifth prototype</em></h3>
+<div class="paragraph">
+<p><em>fix</em> применён ускорение в момент нажатия на экран, а не в момент отпускания</p>
+</div>
+<div class="paragraph">
+<p><em>fix</em> подогнан у героя коллайдер соприкосновения с противниками</p>
+</div>
+<div class="sect3">
+<h4 id="___7">Проблемы последнего прототипа</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Во время, когда нет противников и ничего не происходит - скучно.</p>
+</li>
+<li>
+<p>Бывают непроходимые ситуации.</p>
+</li>
+<li>
+<p>Сложно планировать - успею ли я запустить ускорение повторно к нужному моменту.
+Иногда понимаешь, что его надо было активировать раньше, чтобы успеть.
+Это часто сложно, потому что когда становится видно необходимые данные - уже поздно.
+То есть недостаточна зона обзора.</p>
+</li>
+<li>
+<p>Сложно успеть догадаться, что пропасть малая.
+Приёмную площадку видно слишком поздно.
+Средний и большой острова нельзя отличить - заранее не видно.
+И по этому не понятно, в чём разница и зачем она.
+При этом по факту она есть - можно из за оппонента или по ошибке ускориться для прыжка не оптимально, но при этом перелететь среднюю пропасть.
+Но так, как заранее не известно, что пропасть средняя - это по сути лотерея.
+Даже зная, что пропасть большая игрок не смог бы спланировать свои действия иначе.</p>
+</li>
+<li>
+<p>Когда подряд на некотором расстоянии друг от друга стоят несколько противников, сложно понять - хватит ли ускорения для последнего.
+Или, когда видно, что ускорения не хватит - не понятно, успеет ли накопиться вновь.
+Самая сложная ситуация, когда надеешься на удачу - три противника на удалении друг от друга.
+Ускориться заранее нельзя, т.к. надо первым ускорением сбить первых двух, и третий часто попадает на задержку.</p>
+</li>
+<li>
+<p>Игра воспринимается, как регулярный стресс в перемешку со скукой.
+Нет ощущения, что "разишь", и что побеждаешь, когда не умираешь.
+Возможно, что это можно решить дав анимацию на рассыпание противников и чисто визуальный эффект создаст фан.
+Или же давать штучку или монетку из каждого сбитого существа.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Выводы</div>
+<p>Какие можно сделать предположения по улучшению?</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Сократить длительность ускорения, чтобы его было проще контролировать и прогнозировать.</p>
+</li>
+<li>
+<p>Увеличить дальность видимости.</p>
+</li>
+<li>
+<p>Непроходимые ситуации можно решить создав дебаг режим проверки всех траекторий.</p>
+</li>
+<li>
+<p>Попробовать <span class="lime">acceleration:force</span></p>
+</li>
+<li>
+<p>По плейтесту с Грошевым - можно сделать туториал: герой бежит, и когда подбегает к трамплину - останавливается и появляется призыв тапнуть.
+Когда игрок тапает - игра снова начинает работать, при этом герой ускоряется и 100% выполняет перелёт.
+То же самое делаем для противника.
+Такой туториал можно делать при каждой игре (как в Time Surfer).</p>
+</li>
+<li>
+<p>Надо собрать список похожих игр и указать - чем они похожи.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Time Surfer</p>
+</li>
+<li>
+<p>Dragon Fly</p>
+</li>
+<li>
+<p>Crossy Road.
+Когда преодолеваешь конкретную линию, то радуешься, что избежал столкновения или т.п.
+То есть каждый раз побеждаешь в соревновании.
+На разных линиях разный характер проблемы.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Трава</p>
+</li>
+<li>
+<p>Дорога</p>
+</li>
+<li>
+<p>ЖД</p>
+</li>
+<li>
+<p>Вода</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>ZigZag</p>
+</li>
+<li>
+<p>Flappy Bird</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Проанализировать их.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Насколько долго длится игра.</p>
+</li>
+<li>
+<p>Насколько часто игрок нажимает на экран, и когда не нажимает.</p>
+</li>
+<li>
+<p>С каким характером и набором проблем встречается.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__em_sixth_prototype_em">Шестой прототип <em>sixth prototype</em></h3>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><i class="fa fa-check-square-o"></i> Сделан запрет на ускорение в прыжке.</p>
+</li>
+<li>
+<p><i class="fa fa-check-square-o"></i> Скорость прыжка неизменна и равна скорости на момент отрыва от острова.</p>
+<div class="admonitionblock caution">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+В текущей реализации, если герой ускорился и взлетел над землёй - задержка начинается в момент падения.
+Это вынужденное техническое решение.
+Это приводит к тому, что падая на короткий остров герой не успевает ускориться вновь и падает.
+На лицо невозможность избегнуть гибели (<strong>стресс</strong>).
+В результате задержка сделана предельно короткой.
+</td>
+</tr>
+</tbody></table>
+</div>
+</li>
+<li>
+<p><i class="fa fa-check-square-o"></i> Длительность ускорения меньше, чтобы снизить недостаток короткого горизонта.</p>
+</li>
+<li>
+<p><i class="fa fa-square-o"></i> Добавить различные типы соперников.
+<span class="lime">enemyBehaviour:specialized</span>. Противники ведут себя определёным уникальным образом в зависимости от типа существа</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="___8">Следующий прототип</h3>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><i class="fa fa-square-o"></i> Возможно сделать героя в полёте уязвимым на любой скорости (даже после отрыва с ускорением), но при нажатии ускорения он становится атакующим без изменения скорости.</p>
+</li>
+<li>
+<p><i class="fa fa-square-o"></i> Возможно уменьшить масштаб или отодвинуть героя на сцене, чтобы увеличить горизонт.</p>
+</li>
+<li>
+<p><i class="fa fa-square-o"></i> Возможно сделать ускорение <span class="lime">acceleration:force</span>.
+Тогда перелёт между островами станет крайне чувствителен к точке применения.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div><script id="mathjax-refresh-js">if (window.MathJax) {  window.MathJax.Hub.Typeset();}</script></body></html>
